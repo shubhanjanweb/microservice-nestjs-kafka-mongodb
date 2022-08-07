@@ -1,0 +1,37 @@
+{
+    "global": {
+        "prefix": "skill-tracker/api",
+        "defaultVersion": "1",
+        "port": 3000
+    },
+    "addProfile": {
+        "name": "ADD_PROFILE_SERVICE",
+        "clientId": "add-profile",
+        "groupId": "add-profile-consumer",
+        "kafkaTopic": "add-profile-topic"
+    },
+    "updateProfile": {
+        "name": "UPDATE_PROFILE_SERVICE",
+        "clientId": "update-profile",
+        "groupId": "update-profile-consumer",
+        "kafkaTopic": "update-profile-topic"
+    },
+    "searchProfile": {
+        "name": "SEARCH_PROFILE_SERVICE",
+        "clientId": "search-profile",
+        "groupId": "search-profile-consumer",
+        "kafkaTopic": "search-profile-topic"
+    },
+    "getSkills": {
+        "name": "GET_SKILL_SERVICE",
+        "clientId": "get-skill",
+        "groupId": "get-skill-consumer",
+        "kafkaTopic": "get-skill-topic"
+    },
+    "kafka": {
+        "brokers": "${KAFKA_BROKER_URL}",
+        "connectionTimeout": 3000,
+        "authenticationTimeout": 1000,
+        "reauthenticationThreshold": 10000
+    }
+}

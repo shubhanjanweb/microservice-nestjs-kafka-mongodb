@@ -1,0 +1,38 @@
+<section *ngIf="associates$ | async as associates">
+  <h2>Search Result</h2>
+  <em *ngIf="associates.length>0">Total {{associates.length}} {{associates.length>1?'records':'record'}} found.</em>
+  <em *ngIf="associates.length===0">No record found.</em>
+  <div class="card mt-3" *ngFor="let associate of associates; trackBy: trackByFn">
+    <div class="card-header">
+      <span [innerHTML]="associate.name"></span> - [<span [innerHTML]="associate.associateId"></span>]
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row">
+            <b class="col-md-4">Email Id.</b>
+            <span class="col-md-8"><span [innerHTML]="associate.email"></span></span>
+          </div>
+          <div class="row">
+            <b class="col-md-4">Mobile No.</b>
+            <span class="col-md-8"><span [innerHTML]="associate.mobile"></span></span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div><b>Technical Skills</b></div>
+          <div class="row" *ngFor="let skill of filterSkill(associate.skills,'Technical')">
+            <div class="col-md-8"><span [innerHTML]="skill.skillName"></span></div>
+            <div class="col-md-4"><span [innerHTML]="skill.expertiseLevel"></span></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div><b>Non Technical Skills</b></div>
+          <div class="row" *ngFor="let skill of filterSkill(associate.skills,'Non Technical')">
+            <div class="col-md-8"><span [innerHTML]="skill.skillName"></span></div>
+            <div class="col-md-4"><span [innerHTML]="skill.expertiseLevel"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
