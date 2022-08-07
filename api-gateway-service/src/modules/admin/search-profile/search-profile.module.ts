@@ -15,7 +15,7 @@ import { SearchProfileService } from './search-profile.service';
           brokers: [getConfig().kafka.brokers],
         },
         consumer: {
-          groupId: getConfig().kafka.groupId,
+          groupId: getConfig().searchProfile.groupId,
         },
       },
     }])

@@ -4,7 +4,7 @@ services:
   mongo:
     image: mongo
     restart: always
-    container_name: iiht-skill-tracker-mongo
+    container_name: app-mongo
     ports:
       - 27017:27017
     environment:
@@ -17,7 +17,7 @@ services:
   mongo-express:
     image: mongo-express
     restart: always
-    container_name: iiht-skill-tracker-mongo-gui
+    container_name: app-mongo-gui
     ports:
       - 8081:8081
     depends_on:
@@ -32,7 +32,7 @@ services:
   kafdrop:
     image: obsidiandynamics/kafdrop
     restart: "no"
-    container_name: iiht-skill-tracker-kafka-gui
+    container_name: app-kafka-gui
     ports:
       - "9000:9000"
     environment:
@@ -44,7 +44,7 @@ services:
   kafka:
     image: obsidiandynamics/kafka
     restart: "no"
-    container_name: iiht-skill-tracker-kafka
+    container_name: app-kafka
     ports:
       - "2181:2181"
       - "9092:9092"
@@ -60,10 +60,10 @@ services:
 
   app-add-profile:
     build: ./add-profile-micro-service
-    container_name: iiht-skill-tracker-app-add-profile
+    container_name: app-add-profile
     environment:
       KAFKA_BROKER_URL: "kafka:29092"
-      KAFKA_GROUP_ID: "skill-tracker-group"
+      KAFKA_GROUP_ID: "add-profile-group"
       KAFKA_CONNECTION_TIMEOUT: 3000
       KAFKA_AUTHENTICATION_TIMEOUT: 1000
       KAFKA_RE_AUTHENTICATION_THRESHOLD: 10000
@@ -80,9 +80,10 @@ services:
 
   app-update-profile:
     build: ./update-profile-micro-service
+    container_name: app-update-profile
     environment:
       KAFKA_BROKER_URL: "kafka:29092"
-      KAFKA_GROUP_ID: "skill-tracker-group"
+      KAFKA_GROUP_ID: "update-profile-group"
       KAFKA_CONNECTION_TIMEOUT: 3000
       KAFKA_AUTHENTICATION_TIMEOUT: 1000
       KAFKA_RE_AUTHENTICATION_THRESHOLD: 10000
@@ -99,9 +100,10 @@ services:
 
   app-search-profile:
     build: ./search-profile-micro-service
+    container_name: app-search-profile
     environment:
       KAFKA_BROKER_URL: "kafka:29092"
-      KAFKA_GROUP_ID: "skill-tracker-group"
+      KAFKA_GROUP_ID: "search-profile-group"
       KAFKA_CONNECTION_TIMEOUT: 3000
       KAFKA_AUTHENTICATION_TIMEOUT: 1000
       KAFKA_RE_AUTHENTICATION_THRESHOLD: 10000
@@ -118,9 +120,10 @@ services:
 
   app-get-skill:
     build: ./get-skill-micro-service
+    container_name: app-get-skill
     environment:
       KAFKA_BROKER_URL: "kafka:29092"
-      KAFKA_GROUP_ID: "skill-tracker-group"
+      KAFKA_GROUP_ID: "get-skill-group"
       KAFKA_CONNECTION_TIMEOUT: 3000
       KAFKA_AUTHENTICATION_TIMEOUT: 1000
       KAFKA_RE_AUTHENTICATION_THRESHOLD: 10000
@@ -137,9 +140,9 @@ services:
 
   app-api-gateway:
     build: ./api-gateway-service
+    container_name: app-api-gateway
     environment:
       KAFKA_BROKER_URL: "kafka:29092"
-      KAFKA_GROUP_ID: "skill-tracker-group"
       KAFKA_CONNECTION_TIMEOUT: 3000
       KAFKA_AUTHENTICATION_TIMEOUT: 1000
       KAFKA_RE_AUTHENTICATION_THRESHOLD: 10000
@@ -156,10 +159,11 @@ services:
 
   app-web:
     build: ./skill-tracker-web
+    container_name: app-web
     environment:
       API_BASE_URL: "http://localhost:3000/skill-tracker/api/v1/"
     ports:
-      - 4200:4200
+      - 4200:80
     depends_on:
       - "app-api-gateway"
     links:

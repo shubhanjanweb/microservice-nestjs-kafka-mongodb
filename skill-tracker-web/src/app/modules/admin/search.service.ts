@@ -12,6 +12,7 @@ export class SearchService {
 
 
   constructor(private http: HttpClient) {
+    console.log('baseUrl', baseUrl);
   }
 
   getSkillList(): Observable<any> {

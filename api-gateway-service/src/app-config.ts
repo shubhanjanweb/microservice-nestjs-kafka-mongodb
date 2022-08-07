@@ -10,7 +10,6 @@ function setConfig(env: any) {
     config = {
         "kafka": {
             "brokers": `${env.KAFKA_BROKER_URL}`,
-            "groupId": `${env.KAFKA_GROUP_ID}`,
             "connectionTimeout": env.KAFKA_CONNECTION_TIMEOUT,
             "authenticationTimeout": env.KAFKA_AUTHENTICATION_TIMEOUT,
             "reauthenticationThreshold": env.KAFKA_RE_AUTHENTICATION_THRESHOLD
@@ -27,21 +26,25 @@ function setConfig(env: any) {
         "addProfile": {
             "name": "ADD_PROFILE_SERVICE",
             "clientId": "add-profile",
+            "groupId": "add-profile-group",
             "kafkaTopic": "add-profile-topic"
         },
         "updateProfile": {
             "name": "UPDATE_PROFILE_SERVICE",
             "clientId": "update-profile",
+            "groupId": "update-profile-group",
             "kafkaTopic": "update-profile-topic"
         },
         "searchProfile": {
             "name": "SEARCH_PROFILE_SERVICE",
             "clientId": "search-profile",
+            "groupId": "search-profile-group",
             "kafkaTopic": "search-profile-topic"
         },
         "getSkills": {
             "name": "GET_SKILL_SERVICE",
             "clientId": "get-skill",
+            "groupId": "get-skill-group",
             "kafkaTopic": "get-skill-topic"
         }
     };

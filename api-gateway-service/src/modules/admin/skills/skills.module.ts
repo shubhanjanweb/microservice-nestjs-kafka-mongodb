@@ -15,7 +15,7 @@ import { getConfig } from '../../../app-config';
           brokers: [getConfig().kafka.brokers],
         },
         consumer: {
-          groupId: getConfig().kafka.groupId,
+          groupId: getConfig().getSkills.groupId,
         },
       },
     }])
