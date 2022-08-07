@@ -1,1 +1,1 @@
-pnpm add dotenv @nestjs/config
+pnpm install
