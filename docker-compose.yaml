@@ -158,7 +158,7 @@ services:
       - "app-get-skill"
 
   app-web:
-    build: ./skill-tracker-web
+    build: ./iiht-nx-web-monorepo
     container_name: app-web
     environment:
       API_BASE_URL: "http://localhost:3000/skill-tracker/api/v1/"
