@@ -1,0 +1,4 @@
+<section class="container search-page">
+  <app-search-form [skillOptions]="skills$" (onSearchClicked)="onSearch($event)"></app-search-form>
+  <app-search-result [associates]="associates$"></app-search-result>
+</section>

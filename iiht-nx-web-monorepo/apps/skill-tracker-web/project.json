@@ -1,0 +1,100 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/skill-tracker-web/src",
+  "prefix": "iiht",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/skill-tracker-web",
+        "index": "apps/skill-tracker-web/src/index.html",
+        "main": "apps/skill-tracker-web/src/main.ts",
+        "polyfills": "apps/skill-tracker-web/src/polyfills.ts",
+        "tsConfig": "apps/skill-tracker-web/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/skill-tracker-web/src/favicon.ico",
+          "apps/skill-tracker-web/src/assets"
+        ],
+        "styles": [
+          "apps/skill-tracker-web/src/theme.scss",
+          "apps/skill-tracker-web/src/styles.scss"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/skill-tracker-web/src/environments/environment.ts",
+              "with": "apps/skill-tracker-web/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "skill-tracker-web:build:production"
+        },
+        "development": {
+          "browserTarget": "skill-tracker-web:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "skill-tracker-web:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/skill-tracker-web/**/*.ts",
+          "apps/skill-tracker-web/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/skill-tracker-web"
+      ],
+      "options": {
+        "jestConfig": "apps/skill-tracker-web/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

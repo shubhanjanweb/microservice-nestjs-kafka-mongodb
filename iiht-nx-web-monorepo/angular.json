@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "shared": "libs/shared",
+    "skill-tracker-web": "apps/skill-tracker-web",
+    "skill-tracker-web-e2e": "apps/skill-tracker-web-e2e"
+  }
+}
