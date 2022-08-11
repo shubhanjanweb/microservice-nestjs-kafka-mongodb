@@ -4,14 +4,13 @@ import { SkillsService } from './skills.service';
 
 describe('SkillsController', () => {
   let controller: SkillsController;
+  let skillService: any;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [SkillsController],
-      providers: [SkillsService],
-    }).compile();
-
-    controller = module.get<SkillsController>(SkillsController);
+    skillService = {
+      findAll: jest.fn()
+    }
+    controller = new SkillsController(skillService);
   });
 
   it('should be defined', () => {

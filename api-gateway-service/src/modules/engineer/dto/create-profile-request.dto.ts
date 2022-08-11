@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { MaxLength, IsNotEmpty, IsEmail, IsMobilePhone, Validate, IsString, MinLength, IsNumberString, IsAlpha, IsNumber, Max, Min, IsArray, Length, ValidateNested, ArrayMinSize, ArrayMaxSize } from 'class-validator';
 import { ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments } from 'class-validator';
@@ -34,22 +35,38 @@ export class CreateProfileRequestDto {
   @MaxLength(30, { message: 'name max length 30' })
   @IsString({ message: 'name not a string' })
   @IsNotEmpty({ message: 'name is required' })
+  @ApiProperty({
+    description: 'The name of a profile',
+    type: [String]
+  })
   readonly name: string;
 
   @MinLength(5, { message: 'associateId min length 5' })
   @MaxLength(30, { message: 'associateId max length 30' })
   @IsNotEmpty({ message: 'associateId is required' })
   @Validate(CustomAssociateId)
+  @ApiProperty({
+    description: 'The associate id of a profile',
+    type: [String]
+  })
   readonly associateId: string;
 
   @IsNotEmpty({ message: 'mobile is required' })
   @MinLength(10, { message: 'mobile no. min length 10' })
   @MaxLength(10, { message: 'mobile no. max length 10' })
   @IsNumberString({ message: 'mobile no. should be 10 digit number' })
+  @ApiProperty({
+    description: 'The mobile number of a profile',
+    type: [String]
+  })
   readonly mobile: string;
 
   @IsNotEmpty({ message: 'email is required' })
   @IsEmail({ message: 'email format is wrong' })
+  @ApiProperty({
+    description: 'The email of a profile',
+    type: [String]
+  })
   readonly email: string;
 
   @IsArray({ message: 'skills list should be a list' })
@@ -58,6 +75,10 @@ export class CreateProfileRequestDto {
   @ArrayMinSize(1, { message: 'skills list should have atleast one item.' })
   @ArrayMaxSize(13, { message: 'skills list should have max 13 items.' })
   @Type(() => Skill)
+  @ApiProperty({
+    description: 'The skills of a profile',
+    type: () => Skill
+  })
   readonly skills: Skill[];
 
 }

@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { SearchProfileService } from './search-profile.service';
+import { UpdateProfileService } from './update-profile.service';
 
-describe('SearchProfileService', () => {
-  let service: SearchProfileService;
+describe('UpdateProfileService', () => {
+  let service: UpdateProfileService;
   let kafkaClient: any = {
     subscribeToResponseOf: jest.fn(),
     send: jest.fn()
   };
 
   beforeEach(async () => {
-    service = new SearchProfileService(kafkaClient);
+    service = new UpdateProfileService(kafkaClient);
   });
 
   it('should be defined', () => {

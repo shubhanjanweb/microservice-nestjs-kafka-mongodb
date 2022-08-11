@@ -1,17 +1,14 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { SearchProfileController } from './search-profile.controller';
-import { SearchProfileService } from './search-profile.service';
 
 describe('SearchProfileController', () => {
   let controller: SearchProfileController;
+  let service: any;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [SearchProfileController],
-      providers: [SearchProfileService],
-    }).compile();
-
-    controller = module.get<SearchProfileController>(SearchProfileController);
+    service = {
+      findAll: jest.fn()
+    }
+    controller = new SearchProfileController(service);
   });
 
   it('should be defined', () => {
