@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "userId": "62f66859157fa84d42af7964",
+      "name": "Ajay Malakar",
+      "associateId": "CTS001",
+      "mobile": "5469865496",
+      "email": "ajay.malakar@cts.com",
+      "skills": [
+        {
+          "skillName": "HTML-CSS-JAVASCRIPT",
+          "skillType": "Technical",
+          "expertiseLevel": 20
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalCount": 1,
+    "pageSize": 0,
+    "pageCount": 0
+  }
+}

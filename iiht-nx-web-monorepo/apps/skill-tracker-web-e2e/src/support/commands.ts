@@ -12,13 +12,14 @@
 declare namespace Cypress {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Chainable<Subject> {
-    login(email: string, password: string): void;
+    search(name: string, associateId: string, skillId: string): void;
   }
 }
 //
 // -- This is a parent command --
-Cypress.Commands.add('login', (email, password) => {
-  console.log('Custom command example: Login', email, password);
+Cypress.Commands.add('search', (name, associateId, skillId) => {
+
+  console.log('Custom command example: Login', name, associateId, skillId);
 });
 //
 // -- This is a child command --
