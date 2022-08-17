@@ -19,8 +19,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "docker:build": "docker build -t iiht-skill-tracker/add-profile-microservice-docker-image:1.0 .",
-    "docker:run": "docker run --env MONGO_INITDB_ROOT_USERNAME=\"iihtAdmin\" --env MONGO_INITDB_ROOT_PASSWORD=\"iihtpassword2022\" --env MONGO_INITDB_DATABASE=\"SkillTrackerDB\" --env KAFKA_BROKER_URL=\"kafka: 9092\" --env MONGODB_URL=\"mongo:27017\" --name iiht-skill-tracker-add-profile-microservice -d iiht-skill-tracker/add-profile-microservice-docker-image:1.0"
+    "docker:build": "docker build -t shubhanjanweb/iiht-fse4-sta-add-profile-microservice-docker-image:1.0 .",
+    "docker:run": "docker run --env MONGO_INITDB_ROOT_USERNAME=\"iihtAdmin\" --env MONGO_INITDB_ROOT_PASSWORD=\"iihtpassword2022\" --env MONGO_INITDB_DATABASE=\"SkillTrackerDB\" --env KAFKA_BROKER_URL=\"kafka: 9092\" --env MONGODB_URL=\"mongo:27017\" --name iiht-skill-tracker-add-profile-microservice -d shubhanjanweb/iiht-fse4-sta-add-profile-microservice-docker-image:1.0",
+    "docker:commit": "docker push shubhanjanweb/iiht-fse4-sta-add-profile-microservice-docker-image:1.0"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",

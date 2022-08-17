@@ -19,8 +19,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "docker:build": "docker build -t iiht-skill-tracker/api-gateway-service-docker-image:1.0 .",
-    "docker:run": "docker run -p 3000:3000 --env KAFKA_BROKER_URL=\"localhost: 9092\" --name iiht-skill-tracker-api-gateway-service -d iiht-skill-tracker/api-gateway-service-docker-image:1.0"
+    "docker:build": "docker build -t shubhanjanweb/iiht-fse4-sta-api-gateway-service-docker-image:1.0 .",
+    "docker:run": "docker run -p 3000:3000 --env KAFKA_BROKER_URL=\"localhost: 9092\" --name iiht-skill-tracker-api-gateway-service -d shubhanjanweb/iiht-fse4-sta-api-gateway-service-docker-image:1.0",
+    "docker:commit": "docker push shubhanjanweb/iiht-fse4-sta-api-gateway-service-docker-image:1.0"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
