@@ -1,0 +1,14 @@
+{
+  "name": "mongodb",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "docker:aws:build": "docker build -t 042134106060.dkr.ecr.ap-south-1.amazonaws.com/mongodb .",
+    "docker:aws:commit": "docker push 042134106060.dkr.ecr.ap-south-1.amazonaws.com/mongodb",
+    "docker:build": "docker build -t shubhanjanweb/iiht-fse4-sta-mongodb .",
+    "docker:commit": "docker push shubhanjanweb/iiht-fse4-sta-mongodb"
+  }
+}
