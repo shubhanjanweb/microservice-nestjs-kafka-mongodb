@@ -24,12 +24,14 @@
     "docker:commit": "docker push shubhanjanweb/iiht-fse4-sta-get-skills-microservice-docker-image:1.0"
   },
   "dependencies": {
+    "@nestjs/axios": "^0.1.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/microservices": "^9.0.8",
     "@nestjs/mongoose": "^9.2.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/terminus": "^9.1.1",
     "@types/lodash": "^4.14.182",
     "dotenv": "^16.0.1",
     "kafkajs": "^2.1.0",
