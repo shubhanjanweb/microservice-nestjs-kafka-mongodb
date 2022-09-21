@@ -1,1 +1,0 @@
-pnpm docker:aws:build

@@ -61,6 +61,8 @@ services:
   app-add-profile:
     build: ./add-profile-micro-service
     container_name: app-add-profile
+    ports:
+      - 8001:80
     environment:
       KAFKA_BROKER_URL: "kafka:29092"
       KAFKA_GROUP_ID: "add-profile-group"
@@ -81,6 +83,8 @@ services:
   app-update-profile:
     build: ./update-profile-micro-service
     container_name: app-update-profile
+    ports:
+      - 8002:80
     environment:
       KAFKA_BROKER_URL: "kafka:29092"
       KAFKA_GROUP_ID: "update-profile-group"
@@ -101,6 +105,8 @@ services:
   app-search-profile:
     build: ./search-profile-micro-service
     container_name: app-search-profile
+    ports:
+      - 8003:80
     environment:
       KAFKA_BROKER_URL: "kafka:29092"
       KAFKA_GROUP_ID: "search-profile-group"
@@ -121,6 +127,8 @@ services:
   app-get-skill:
     build: ./get-skill-micro-service
     container_name: app-get-skill
+    ports:
+      - 8004:80
     environment:
       KAFKA_BROKER_URL: "kafka:29092"
       KAFKA_GROUP_ID: "get-skill-group"
@@ -158,10 +166,10 @@ services:
       - "app-get-skill"
 
   app-web:
-    build: ./iiht-nx-web-monorepo
+    build: ./nx-web-monorepo
     container_name: app-web
     environment:
-      API_BASE_URL: "http://localhost:3000/skill-tracker/api/v1/"
+      API_BASE_URL: "/skill-tracker/api/v1/"
     ports:
       - 4200:80
     depends_on:
